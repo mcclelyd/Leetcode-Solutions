@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/return-length-of-arguments-passed/
+// solution author: Lydia McCleary
+// classification: Easy
+// date: 01/08/2024
+/**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ */
+var argumentsLength = function(...args) {
+    let i = 0;
+    while (i < args.length) {
+        i++
+    }
+    return i;
+};
+
+/**
+ * argumentsLength(1, 2, 3); // 3
+ */

@@ -1,6 +1,7 @@
 // source: https://leetcode.com/problems/contains-duplicate/
 // solution author: Lydia McCleary
 // classification: Easy
+// date: 09/19/23, repeat attempt for practice
 
 /*
 Given an integer array nums, return true if any value appears at least twice in the array, 
