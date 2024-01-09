@@ -1,0 +1,37 @@
+// source: https://leetcode.com/problems/longest-substring-without-repeating-characters
+// solution author: Lydia McCleary
+// classification: Medium
+// date: 07/07/2022
+
+// Key: 2 pointer approach - intuitive when you realize how simple
+// the ascending solution is, but you still need to account for 
+// patterns occurring at the middle/end -- e.g. "abcabccbb" vs "pwwwkew"
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+    int i = 0; // pointer to beginning -- does not traverse
+    int j = 0; // 2nd pointer that moves to search through chars
+    int max = 0; // used to track the length of the longest substring
+    
+    HashSet<Character> set = new HashSet<>();
+    
+    // 2nd pointer traverses the length of the string
+    while(j < s.length()) {
+	// if the current character is not contained by the set, add it
+	// increment the pointer to traverse further
+	// set substring length as max 
+        if(!set.contains(s.charAt(j))) {
+            set.add(s.charAt(j));
+            j++;
+            max = Math.max(set.size(), max); 
+        }
+        else {
+            // duplicate found -- need to remove a character from the
+            // beginning of hash set to decrement its size by 1
+            set.remove(s.charAt(i));
+            i++;
+        }
+    } 
+    return max;
+    }
+}

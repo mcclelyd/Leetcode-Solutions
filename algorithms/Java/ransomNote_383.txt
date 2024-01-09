@@ -1,0 +1,31 @@
+// source: https://leetcode.com/problems/ransom-note/
+// solution author: Lydia McCleary
+// classification: Easy
+// date: 08/15/2022
+
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {        
+        // map ransom note
+        // if each char in ransom maps to one in magazine, return true
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i = 0; i < magazine.length(); i++) {
+            char current = magazine.charAt(i);
+            // put the current element with the count of what its count is already (if it's been seen)
+            // or if the current element hasn't been seen, return 0 + 1 -- to make its count 1
+            map.put(current, map.getOrDefault(current, 0) + 1);
+        }
+        
+	// iterate over the ransom note and check if 
+	// for each character, it appears in the magazine map
+        for(int j = 0; j < ransomNote.length(); j++) {
+            char current = ransomNote.charAt(j);
+            if(!map.containsKey(current) || map.get(current) <= 0) {
+                return false;
+            }
+	    // if the character exists in both, put the character in the map
+	    // and decrement the letter count
+            map.put(current, map.get(current) - 1);
+        }
+        return true;
+    }
+}

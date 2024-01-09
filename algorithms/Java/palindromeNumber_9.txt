@@ -1,0 +1,23 @@
+// source: https://leetcode.com/problems/palindrome-number/
+// solution author: Lydia McCleary
+// classification: Easy
+// date: 01/08/2024, repeat attempt for practice
+
+class Solution {
+    public boolean isPalindrome(int x) {
+        // parse the int - 2 pointer approach 
+        String num = String.valueOf(x);
+
+        int start = 0;
+        int end = num.length() - 1;
+
+        while (start <= end) {
+            if(num.charAt(start) != num.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+}
