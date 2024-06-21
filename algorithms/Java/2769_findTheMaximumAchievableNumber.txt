@@ -1,0 +1,8 @@
+class Solution {
+    public int theMaximumAchievableX(int num, int t) {
+        int x = num + 2*t;
+        return x;
+    }
+}
+
+// solved in 3:59 - one of the worst written LeetCode problems I've seen

@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> findWordsContaining(String[] words, char x) {
+        // iterate over the words array
+        // if it contains char x, note the array index and add it to the list
+        // print list at the end
+        // could optimize with a hashmap I think - but brute force first
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].contains(String.valueOf(x)) ) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+}
+
+// solved in 8:32
