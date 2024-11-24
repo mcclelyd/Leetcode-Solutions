@@ -1,0 +1,77 @@
+// wrote it out on paper brute force, realized a clean way to write it that looks less ugly
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int max = 0;
+        ArrayList<Boolean> kids = new ArrayList<>();
+        for (int candy : candies) {
+            max = Math.max(max, candy);
+        }
+        for (int candy : candies) {
+            if (candy + extraCandies >= max) {
+                kids.add(true);
+            }
+            else {
+                kids.add(false);
+            }
+        }
+        return kids;
+    }
+}
+
+
+
+
+// Integrating a max
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        // check previous element in the array to compare if current is bigger than past - true else, false
+        int previous_kid;
+        int current = 0;
+        int max = 0;
+        ArrayList<Boolean> kids = new ArrayList<>();
+        // first kid, will always be true because you have no one to compare to
+        for (int i = 0; i < candies.length; i++) {
+            if (i == 0) {
+                kids.add(true);
+            }
+            else {
+                if (candies[i] + extraCandies > max) {
+                //System.out.println(candies[i] + extraCandies);
+                kids.add(true);
+                }
+                else {
+                    kids.add(false);
+                }
+            } 
+            max = candies[i] + extraCandies;
+        }
+        return kids;
+    }
+}
+
+
+
+// Initial brute force solution - not fully correct but it's important to document the process
+class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        // check previous element in the array to compare if current is bigger than past - true else, false
+        int previous_kid;
+        int current = 0;
+        ArrayList<Boolean> kids = new ArrayList<>();
+        // first kid, will always be true because you have no one to compare to
+        for (int i = 0; i < candies.length; i++) {
+            if (i == 0) {
+                kids.add(true);
+            }
+            else {
+                if (candies[i] + extraCandies > candies[i-1]) {
+                kids.add(true);
+                }
+                else {
+                    kids.add(false);
+                }
+            } 
+        }
+        return kids;
+    }
+}
