@@ -1,0 +1,18 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        // partition based on n 
+        int arr[] = new int[nums.length];
+        int start = 0; 
+        //int tracker = n;
+        for (int i = 0; i < nums.length; i++) {
+            if (i % 2 == 0) {
+                arr[i] = nums[start];
+                start++;
+            } else {
+                arr[i] = nums[n];
+                n++;
+            }
+        }
+        return arr;
+    }
+}
