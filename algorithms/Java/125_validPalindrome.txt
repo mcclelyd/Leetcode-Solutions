@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+        // need to take in the string and parse out the commas and uppercase
+        String output = "";
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isLetterOrDigit(s.charAt(i))) {
+                output = output + Character.toLowerCase(s.charAt(i));
+            }
+        }
+        int left = 0; 
+        int right = output.length()-1;
+
+        while (left <= right) {
+            if (output.charAt(left) != output.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+}
