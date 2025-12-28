@@ -1,0 +1,13 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        // optimized solution - use a Hash Set because it automatically does not accept duplicates
+        Set<Integer> num_array = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (num_array.contains(nums[i])) {
+                return true;
+            }
+            num_array.add(nums[i]);
+        }
+        return false; 
+    }
+}
